@@ -235,7 +235,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
 
     // Start the Avoid Router.
-    console.log('avoidRouterService.isLoaded', avoidRouterService.isLoaded);
     const router = new AvoidRouter(graph, {
       shapeBufferDistance: 20,
       idealNudgingDistance: 10,
