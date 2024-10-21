@@ -2,7 +2,6 @@ import { AfterViewInit, OnInit, Component, ElementRef, ViewChild } from '@angula
 import { linkTools, elementTools, dia, shapes, highlighters } from '@joint/plus';
 import { Node, Edge } from '../shared/shapes';
 import ResizeTool from '../shared/resize-tool';
-import { AvoidRouterService } from './avoid-router.service';
 import { AvoidRouter } from '../shared/avoid-router';
 
 @Component({
@@ -13,13 +12,8 @@ import { AvoidRouter } from '../shared/avoid-router';
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('canvas') canvas: ElementRef;
 
-  private avoidRouterService: AvoidRouterService;
   private graph: dia.Graph;
   private paper: dia.Paper;
-
-  constructor(avoidRouterService: AvoidRouterService) {
-    this.avoidRouterService = avoidRouterService;
-  }
 
   public async ngOnInit(): Promise<any> {
     const cellNamespace = {
@@ -151,7 +145,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    const { avoidRouterService, canvas, graph, paper } = this;
+    const { canvas, graph, paper } = this;
 
     const c1 = new Node({
       position: { x: 100, y: 100 },
